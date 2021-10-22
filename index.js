@@ -167,7 +167,7 @@ io.on('connection', (socket) => {
 
       console.log(producto)
 
-      ProductoDB.insertMany(producto,(error)=>{
+      ProductoDB.create(producto,(error)=>{
         if (error) {
             throw "Error al grabar productos " + error;
         } else {
