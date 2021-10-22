@@ -2,19 +2,6 @@ const express = require('express');
 const handlebars = require('express-handlebars');
 const mongoose = require('mongoose');
 
-// class Funciones {
-//     getSiguienteId = ( productos ) => {
-//       let ultimoId = 0
-//       productos.forEach(producto => {
-//         if (producto.id > ultimoId){
-//           ultimoId = producto.id
-//         }
-//       });
-//       return ++ultimoId
-//     }
-// }
-// const funciones = new Funciones()
-
 const app = express();
 const PORT = 8080;
 const router = express.Router();
@@ -38,8 +25,6 @@ const productos = [
 const mensajes = [
 
 ];
-
-
 
 const URI = 'mongodb://localhost:27017/ecommerce';
 
@@ -76,6 +61,7 @@ mongoose.connect(URI,
   });
 
   const ProductoSchema = mongoose.Schema({
+    id: {type: Number, require: true},
     title: {type: String, require: true, minLength: 1, maxLength: 50},
     price: {type: String, require: true, minLength: 1, maxLength: 25},
     thumbnail: {type: String, require: true, minLength: 1},
